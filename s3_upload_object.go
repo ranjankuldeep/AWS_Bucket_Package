@@ -9,7 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/s3/s3manager"
 )
 
-func UploadItem(bucket string, filename string) {
+func UploadItem(bucket string, filename string, region string) {
 
 	fmt.Println("Uploading item to bucket")
 	file, err := os.Open(filename)
@@ -20,7 +20,7 @@ func UploadItem(bucket string, filename string) {
 	defer file.Close()
 
 	sess, err := session.NewSession(&aws.Config{
-		Region: aws.String("us-west-2")},
+		Region: aws.String(region)},
 	)
 
 	uploader := s3manager.NewUploader(sess)

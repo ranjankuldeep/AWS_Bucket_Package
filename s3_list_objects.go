@@ -8,9 +8,9 @@ import (
 	"github.com/aws/aws-sdk-go/service/s3"
 )
 
-func ListBucketItems(bucket string) {
+func ListBucketItems(bucket string, region string) {
 	sess, err := session.NewSession(&aws.Config{
-		Region: aws.String("us-west-2")},
+		Region: aws.String(region)},
 	)
 	if err != nil {
 		exitError("Unable to create session, %v", err)

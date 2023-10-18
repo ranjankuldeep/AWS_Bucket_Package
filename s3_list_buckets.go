@@ -14,9 +14,9 @@ func exitError(msg string, args ...interface{}) {
 	fmt.Fprintf(os.Stdout, msg+"\n", args...)
 	os.Exit(1)
 }
-func ListBuckets() {
+func ListBuckets(region string) {
 	// creating the session
-	session, err := session.NewSession(&aws.Config{Region: aws.String("us-west-2")})
+	session, err := session.NewSession(&aws.Config{Region: aws.String(region)})
 
 	svc := s3.New(session)
 

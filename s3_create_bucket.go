@@ -8,7 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/s3"
 )
 
-func CreateBucket(bucket string) {
+func CreateBucket(bucket string, region string) {
 
 	sess, err := session.NewSession(&aws.Config{
 		Region: aws.String("us-west-2")},
